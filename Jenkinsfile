@@ -6,7 +6,7 @@ pipeline{
                sh 'git clone https://github.com/Millanjena1/java-code1.git'
             }
         }
-        stage("checkout"){
+        stage("move"){
             steps{
                sh 'cd {WORKSPACE}/java-code1'
             }
