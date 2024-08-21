@@ -1,32 +1,26 @@
 pipeline{
     agent any
     stages{
-        stage("A"){
+         stage("checkout"){
             steps{
-                echo "========executing A========"
+               sh 'git clone https://github.com/Millanjena1/java-code1.git'
             }
-            post{
-                always{
-                    echo "========always========"
-                }
-                success{
-                    echo "========A executed successfully========"
-                }
-                failure{
-                    echo "========A execution failed========"
-                }
+        }
+        stage("compile"){
+            steps{
+               sh 'mvn compile'
+            }
+        }
+        stage("test"){
+            steps{
+                sh 'mvn test'
+            }
+        }
+        stage("package"){
+            steps{
+               sh 'mvn package'
             }
         }
     }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
-    }
+
 }
