@@ -8,7 +8,7 @@ pipeline{
         }
         stage("move"){
             steps{
-               sh 'cd {WORKSPACE}/java-code1'
+               sh 'cd ${WORKSPACE}/java-code1'
             }
         }
         stage("compile"){
